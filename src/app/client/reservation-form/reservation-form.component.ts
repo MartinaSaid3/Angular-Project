@@ -31,14 +31,7 @@ export class ReservationFormComponent implements OnInit {
     this.ReservationForm = this._formBuilder.group({
       venueId: ['', Validators.compose([Validators.required])],
       date: ['', Validators.required],
-      numOfGuests: [
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.min(0),
-          Validators.max(0),
-        ]),
-      ],
+      numOfGuests: ['', Validators.compose([Validators.required])],
       specialRequest: ['', Validators.required],
       services: ['', Validators.required],
       email: [
