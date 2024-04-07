@@ -1,0 +1,58 @@
+<button class="btn btn-outline-primary ">Add New User</button>
+<div class = "bg d-flex flex-column justify-content-center">
+  <span class=" pt-5 ps-5 fs-3 dark-gray-color">Hello Name <span >&#127995;  &#128075; </span></span>
+  <div class="p-5 d-flex flex-column gap-5 ">
+    <!-- <input type="text" name="UserId"/> -->
+    <!-- <span class="lav-color fs-3">Add Hall</span> -->
+    <div class="d-flex flex-column gap-3  w-100 h-auto">
+      <!-- <section class="card py-4 bg-white h-auto d-flex flex-row align-items-center justify-content-center"> -->
+        <!-- <div class="d-flex flex-row justify-content-between h-auto w-100">
+          <span class="fs-6 dark-gray-color"> Halls</span>
+          <a [routerLink]="['/service_provider/Halls/add_Hall']"  class="text-decoration-none dark-gray-color">&#10020;</a>
+        </div> -->
+        <!-- <a  class="d-flex flex-row align-items-center justify-content-center text-decoration-none light-gray-color text-center">
+          <mat-icon class="fs-1 w-100 h-100">add_circle</mat-icon>
+        </a> -->
+        <!-- <div class="fs-1 lav-color text-center h-auto w-100">
+          {{halls_count}}
+        </div> -->
+      <!-- </section> -->
+      <section>
+        
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Role</th>
+          
+              <th scope="col">SSN</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Gender</th>
+       
+              <th scope="col">Email</th>
+              <th scope="col">UserName</th>
+            <th colspan="2">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of this.users" >
+              <td >{{item.role}}</td>
+              <!-- <td>{{item.fullName}}</td> -->
+              <td>{{item.ssn}}</td>
+              <td>{{item.phone}}</td>
+              <td>{{item.gender}}</td>
+              <!-- <td>{{item.address}}</td> -->
+              <td>{{item.email}}</td>
+              <td>{{item.username}}</td>
+              <td colspan="2"><a routerLink="/admin/{{item.username}}/edit" class="btn btn-danger">Update User</a> 
+              <button class="btn btn-outline-primary" (click)="deleteUser($event,item.id)">Delete User</button></td>
+
+
+            </tr>
+            <tr>
+              
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+</div>
