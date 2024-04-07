@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Reservation } from '../_modules/reservation';
-import { Halls } from '../_modules/halls';
 
 @Injectable({
   providedIn: 'root',
@@ -20,8 +19,8 @@ export class HallsService {
     return this._http.get(`http://localhost:5291/api/Venues/price/${price}`);
   }
 
-  getHallsById(id: number): Observable<Halls> {
-    return this._http.get<Halls>(`http://localhost:5291/api/Venues/${id}`);
+  getHallsById(id: number): Observable<any> {
+    return this._http.get(`http://localhost:5291/api/Venues/${id}`);
   }
   getTotalPriceById(
     id: number,

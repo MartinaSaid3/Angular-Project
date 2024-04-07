@@ -2,14 +2,8 @@
   <app-navbar></app-navbar>
   <section class="container-fluid h-size gap-5 gap-lg-0 d-flex flex-row align-items-center flex-wrap justify-content-around">
     <div class="w-size ">
-      <div class="gallery w-100">
-        <img src="https://assets.codepen.io/1506195/unsplash-1.jpg" alt="" />
-        <img src="https://assets.codepen.io/1506195/unsplash-7.jpg" alt="" />
-        <img src="https://assets.codepen.io/1506195/unsplash-3.jpg" alt="" />
-        <img src="https://assets.codepen.io/1506195/unsplash-2.jpg" alt="" />
-        <img src="https://assets.codepen.io/1506195/unsplash-6.jpg" alt="" />
-        <img src="https://assets.codepen.io/1506195/unsplash-0.jpg" alt="" />
-        <img src="https://assets.codepen.io/1506195/unsplash-8.jpg" alt="" />
+      <div class="gallery w-100" *ngFor="let image of thisHall?.imagesData">
+        <img [src]="image" alt="VenueImage" />
       </div>
     </div>
 
@@ -50,8 +44,8 @@
             <input type="number" [min]="thisHall?.minCapacity??0" [max]="thisHall?.maxCapacity??0" class="form-control" [(ngModel)]="guestsnum" placeholder="number of guest">
             <select class="form-control" [(ngModel)]="service">
               <option value="openBuffet">openBuffet</option>
-              <option value="setmenu">SetMenu</option>
-              <option value="HighTea">HighTea</option>
+              <option value="setmenue">SetMenue</option>
+              <option value="highTea">HighTea</option>
             </select>
             <button type="button" class="btn button-form" (click)="getTotalPrice()">Calculate</button>
             <p *ngIf="flage">{{totalPrice}}</p>
