@@ -10,5 +10,5 @@ export interface Halls {
   minCapacity:number;
   priceStartingFrom:number;
   imagesData:string[];
-  reservationDates:Date[];
+  reservationDates:string[];
 }

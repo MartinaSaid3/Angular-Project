@@ -2,31 +2,40 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Reservation } from '../_modules/reservation';
+import { Halls } from '../_modules/halls';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HallsService {
+  constructor(private _http: HttpClient) {}
 
-  constructor(private _http:HttpClient) { }
-
-  getAllHalls():Observable<any>{
+  getAllHalls(): Observable<any> {
     return this._http.get(`http://localhost:5291/api/Venues`);
   }
-  getSpecialHalls(city:string):Observable<any>{
+  getSpecialHalls(city: string): Observable<any> {
     return this._http.get(`http://localhost:5291/api/Venues/${city}`);
   }
-  getHallsPrice(price:number):Observable<any>{
+  getHallsPrice(price: number): Observable<any> {
     return this._http.get(`http://localhost:5291/api/Venues/price/${price}`);
   }
 
-  getHallsById(id:number):Observable<any>{
-    return this._http.get(`http://localhost:5291/api/Venues/${id}`);
+  getHallsById(id: number): Observable<Halls> {
+    return this._http.get<Halls>(`http://localhost:5291/api/Venues/${id}`);
   }
-  getTotalPriceById(id:number,service:string,numofGuests:number):Observable<any>{
-    return this._http.get(`http://localhost:5291/${id}/${service}/${numofGuests}`);
+  getTotalPriceById(
+    id: number,
+    service: string,
+    numofGuests: number
+  ): Observable<any> {
+    return this._http.get(
+      `http://localhost:5291/${id}/${service}/${numofGuests}`
+    );
   }
-  ReservationHall(reservation:Reservation):Observable<any>{
-    return this._http.post<Reservation>(`http://localhost:5291/api/Venues`,reservation);
+  ReservationHall(reservation: Reservation): Observable<any> {
+    return this._http.post<Reservation>(
+      `http://localhost:5291/api/Venues`,
+      reservation
+    );
   }
 }
